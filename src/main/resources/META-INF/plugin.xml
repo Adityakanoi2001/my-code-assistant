@@ -6,13 +6,50 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.aksh2000.mycodeassistant.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow id="Assistant"
+                    factoryClass="com.github.aksh2000.mycodeassistant.control.ChatBotToolWindow"
+                    anchor="right" icon="/icons/toolWindow.svg" canCloseContents="true"
+                    secondary="false"/>
+        <applicationService
+                serviceImplementation="com.github.aksh2000.mycodeassistant.settings.AppSettingsState"/>
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.github.aksh2000.mycodeassistant.settings.AppSettingsConfigurable"
+                id="com.github.aksh2000.mycodeassistant.settings.AppSettingsConfigurable"
+                displayName="Code Assistant: Config"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.aksh2000.mycodeassistant.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="com.github.aksh2000.mycodeassistant.control.actions.ExplainAction"
+                class="com.github.aksh2000.mycodeassistant.control.actions.ExplainAction"
+                text="Explain Code"
+                description="Explain code">
+            <add-to-group group-id="ToolWindowContextMenu" anchor="first"/>
+        </action>
+        <action id="com.github.aksh2000.mycodeassistant.control.actions.RefactorAction"
+                class="com.github.aksh2000.mycodeassistant.control.actions.RefactorAction"
+                text="Refactor Code"
+                description="Refactor code">
+            <add-to-group group-id="ToolWindowContextMenu" anchor="first"/>
+        </action>
+        <action id="com.github.aksh2000.mycodeassistant.control.actions.UnitTestCaseAction"
+                class="com.github.aksh2000.mycodeassistant.control.actions.UnitTestCaseAction"
+                text="Generate Unit Test Cases"
+                description="Generate unit test cases">
+            <add-to-group group-id="ToolWindowContextMenu" anchor="first"/>
+        </action>
+        <action id="com.github.aksh2000.mycodeassistant.control.actions.JavaDocAction"
+                class="com.github.aksh2000.mycodeassistant.control.actions.JavaDocAction"
+                text="Generate Javadoc"
+                description="Generate javadoc">
+            <add-to-group group-id="ToolWindowContextMenu" anchor="first"/>
+        </action>
+        <action id="com.github.aksh2000.mycodeassistant.control.actions.EdgeCaseAnalysisAction"
+                class="com.github.aksh2000.mycodeassistant.control.actions.EdgeCaseAnalysisAction"
+                text="Edge Case Analysis"
+                description="Edge case analysis">
+            <add-to-group group-id="ToolWindowContextMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
