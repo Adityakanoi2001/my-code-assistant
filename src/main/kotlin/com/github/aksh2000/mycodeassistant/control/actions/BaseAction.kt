@@ -34,7 +34,7 @@ abstract class BaseAction : AnAction() {
 
         chatBotActionService.handlePromptAndResponse(
             contentPanel,
-            ActionPromptFormatter(chatBotActionService.action, lang, selectedText),
+            ActionPromptFormatter(chatBotActionService.action, getActionType().name, lang, selectedText),
             getReplaceableAction(event)
         )
 
