@@ -1,6 +1,7 @@
 package com.github.aksh2000.mycodeassistant.views
 
 import com.github.aksh2000.mycodeassistant.control.actions.Action.EXPLAIN_CODE
+import com.github.aksh2000.mycodeassistant.control.actions.Action.IMPROVISE
 import com.github.aksh2000.mycodeassistant.control.actions.ChatBotActionService
 import com.intellij.openapi.ui.NullableComponent
 import com.intellij.ui.Gray
@@ -123,6 +124,20 @@ class ContentPanelComponent(private val chatBotActionService: ChatBotActionServi
         searchTextArea.addActionListener(listener)
         actionPanel.add(searchTextArea, BorderLayout.CENTER)
 
+
+        // Code for Improvise the Test Case
+        val improviseListener: (ActionEvent) -> Unit = {
+            val prompt = searchTextArea.text
+            searchTextArea.text = ""
+            chatBotActionService.setActionType(IMPROVISE)
+            chatBotActionService.handlePromptAndResponse(this, object : PromptFormatter {
+                override fun getUIPrompt() = prompt
+                override fun getRequestPrompt() = prompt
+            })
+        }
+        searchTextArea.addActionListener(improviseListener)
+        actionPanel.add(searchTextArea, BorderLayout.CENTER)
+
         val actionButtons = JPanel(BorderLayout())
         val clearChat = LinkLabel<String>("Clear", null)
         clearChat.addMouseListener(object : MouseAdapter() {
@@ -133,13 +148,19 @@ class ContentPanelComponent(private val chatBotActionService: ChatBotActionServi
         })
         clearChat.border = JBEmptyBorder(5, 5, 5, 5)
 
-        val button = JButton("Send")
-        button.addActionListener(listener)
-
-        actionButtons.add(button, BorderLayout.NORTH)
+        val sendButton = JButton("Send")
+        sendButton.addActionListener(listener)
+        actionButtons.add(sendButton, BorderLayout.NORTH)
         actionButtons.add(clearChat, BorderLayout.SOUTH)
         actionPanel.add(actionButtons, BorderLayout.EAST)
+        mainPanel.add(actionPanel, BorderLayout.SOUTH)
 
+        // Button for Improvise the Results
+        val improviseButton = JButton("Improvise")
+        improviseButton.addActionListener(improviseListener)
+        actionButtons.add(improviseButton, BorderLayout.NORTH)
+        actionButtons.add(clearChat, BorderLayout.SOUTH)
+        actionPanel.add(actionButtons, BorderLayout.EAST)
         mainPanel.add(actionPanel, BorderLayout.SOUTH)
     }
 }
