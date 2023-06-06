@@ -7,7 +7,7 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Assistant"
+        <toolWindow id="QB-Assistant"
                     factoryClass="com.github.aksh2000.mycodeassistant.control.ChatBotToolWindow"
                     anchor="right" icon="/icons/toolWindow.svg" canCloseContents="true"
                     secondary="false"/>

@@ -1,12 +1,12 @@
 # my-code-assistant
-
+- A Smart ChatGPT based Plugin for Assisting Your Development Work using GPT-3.5 Turbo Model
 ![Build](https://github.com/aksh2000/my-code-assistant/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 
 ## Template ToDo list
 - [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
+- [x] Get familiar with the [template documentation][template].
 - [ ] Adjust the [pluginGroup](./gradle.properties), [plugin ID](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
 - [ ] Adjust the plugin description in `README` (see [Tips][docs:plugin-description])
 - [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
