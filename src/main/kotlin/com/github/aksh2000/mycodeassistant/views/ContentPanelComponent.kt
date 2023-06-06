@@ -1,8 +1,8 @@
 package com.github.aksh2000.mycodeassistant.views
 
-import com.github.aksh2000.mycodeassistant.control.actions.Action.EXPLAIN_CODE
-import com.github.aksh2000.mycodeassistant.control.actions.Action.IMPROVISE
+import com.github.aksh2000.mycodeassistant.control.actions.Action.*
 import com.github.aksh2000.mycodeassistant.control.actions.ChatBotActionService
+import com.github.aksh2000.mycodeassistant.control.model.ContentPanelComponentModel
 import com.intellij.openapi.ui.NullableComponent
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
@@ -39,6 +39,9 @@ class ContentPanelComponent(private val chatBotActionService: ChatBotActionServi
         myList, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
         ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
     )
+    companion object {
+        val contentPanelComponentModel = ContentPanelComponentModel("")
+    }
 
     init {
         val splitter = OnePixelSplitter(true, .98f)
@@ -127,16 +130,13 @@ class ContentPanelComponent(private val chatBotActionService: ChatBotActionServi
 
         // Code for Improvise the Test Case
         val improviseListener: (ActionEvent) -> Unit = {
-            val prompt = searchTextArea.text
-            searchTextArea.text = ""
+            val prompt ="${contentPanelComponentModel.previousResponse} \n \n Generate more improvised Junit Test cases (as Code) for above test case using Spring boot framework.Use the last test case generated improvise the test case with more assertions and more coverage over the code also consider if and else statements (if any) into consideration and generate test cases accordingly"
             chatBotActionService.setActionType(IMPROVISE)
             chatBotActionService.handlePromptAndResponse(this, object : PromptFormatter {
                 override fun getUIPrompt() = prompt
                 override fun getRequestPrompt() = prompt
             })
         }
-        searchTextArea.addActionListener(improviseListener)
-        actionPanel.add(searchTextArea, BorderLayout.CENTER)
 
         val actionButtons = JPanel(BorderLayout())
         val clearChat = LinkLabel<String>("Clear", null)
@@ -149,16 +149,11 @@ class ContentPanelComponent(private val chatBotActionService: ChatBotActionServi
         clearChat.border = JBEmptyBorder(5, 5, 5, 5)
 
         val sendButton = JButton("Send")
-        sendButton.addActionListener(listener)
-        actionButtons.add(sendButton, BorderLayout.NORTH)
-        actionButtons.add(clearChat, BorderLayout.SOUTH)
-        actionPanel.add(actionButtons, BorderLayout.EAST)
-        mainPanel.add(actionPanel, BorderLayout.SOUTH)
-
-        // Button for Improvise the Results
         val improviseButton = JButton("Improvise")
+        sendButton.addActionListener(listener)
         improviseButton.addActionListener(improviseListener)
-        actionButtons.add(improviseButton, BorderLayout.NORTH)
+        actionButtons.add(sendButton, BorderLayout.NORTH)
+        actionButtons.add(improviseButton, BorderLayout.EAST)
         actionButtons.add(clearChat, BorderLayout.SOUTH)
         actionPanel.add(actionButtons, BorderLayout.EAST)
         mainPanel.add(actionPanel, BorderLayout.SOUTH)

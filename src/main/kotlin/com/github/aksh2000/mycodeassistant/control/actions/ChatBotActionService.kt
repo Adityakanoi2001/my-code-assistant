@@ -3,8 +3,10 @@ package com.github.aksh2000.mycodeassistant.control.actions
 import ChatBot
 import ChatCompletionRequest
 import ChatGptHttp
+import com.github.aksh2000.mycodeassistant.control.model.ContentPanelComponentModel
 import com.github.aksh2000.mycodeassistant.settings.AppSettingsState
 import com.github.aksh2000.mycodeassistant.views.ContentPanelComponent
+import com.github.aksh2000.mycodeassistant.views.ContentPanelComponent.Companion.contentPanelComponentModel
 import com.github.aksh2000.mycodeassistant.views.PromptFormatter
 import com.intellij.openapi.application.ApplicationManager
 
@@ -33,12 +35,12 @@ class ChatBotActionService(private var actionType: Action) {
     }
 
 
-    private fun makeChatBotRequest(prompt: String): String {
+    private fun makeChatBotRequest(prompt: String,contentPanelComponentModel: ContentPanelComponentModel): String {
         val apiKey = AppSettingsState.instance.apiKey
         val model = AppSettingsState.instance.model.ifEmpty { "gpt-3.5-turbo" }
 
         if (apiKey.isEmpty()) {
-            return "Please add an API Key in the ChatBot settings"
+            return "Please add an API Key in the ChatBot Settings Using Steps :- \n  IntelliJ Idea > Preferences > Tools > Code Assistant : Config > API Key"
         }
 
         try {
@@ -47,6 +49,7 @@ class ChatBotActionService(private var actionType: Action) {
             val request = ChatCompletionRequest(model, system)
             request.addMessage(prompt)
             val generateResponse = chatbot.generateResponse(request)
+            contentPanelComponentModel.previousResponse = generateResponse.choices[0].message.content
             return generateResponse.choices[0].message.content
         } catch (e: Exception) {
             return "Error while fetching the response: ${e.message}";
@@ -62,10 +65,10 @@ class ChatBotActionService(private var actionType: Action) {
         ui.add("Loading...")
 
         ApplicationManager.getApplication().executeOnPooledThread {
-            val response = this.makeChatBotRequest(prompt.getRequestPrompt())
+            val response = this.makeChatBotRequest(prompt.getRequestPrompt(),contentPanelComponentModel)
             ApplicationManager.getApplication().invokeLater {
                 when {
-                    actionType === Action.REFACTOR_CODE -> ui.updateReplaceableContent(
+                    actionType === Action.REFACTOR_CODE || actionType === Action.IMPROVISE  -> ui.updateReplaceableContent(
                         response
                     ) {
                         replaceSelectedText?.invoke(getCodeSection(response))
