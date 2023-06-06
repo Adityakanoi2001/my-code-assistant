@@ -1,2 +1,2 @@
 rootProject.name = "my-code-assistant"
-//enableFeaturePreview("VERSION_CATALOGS")
+enableFeaturePreview("VERSION_CATALOGS")
