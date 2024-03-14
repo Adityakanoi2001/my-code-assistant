@@ -2,6 +2,8 @@
 
 QB's ChatBot Intellij Plugin is a powerful tool that integrates ChatGPT into the IntelliJ IDE, providing developers with a seamless and efficient coding experience. With this plugin, you can harness the power of ChatGPT to assist you in various coding tasks, from explaining code snippets to refactoring code. The QB Chat Assistant is Actively Used by Many Sqads and Teams in BliBli Group and is has been helping many Developers to Increase their productivity by ~30% per Sprint.
 
+![QB Smart Assistant](https://github.com/Adityakanoi2001/my-code-assistant/raw/1b29f51ae84b872cbbb404ae652de0b2c5c44383/QB%20Smart%20Assistant.png)
+
 ## Overview
 
 The ChatBot plugin leverages the capabilities of ChatGPT, a state-of-the-art language model developed by OpenAI, to assist developers in their coding endeavors. Whether you're seeking explanations for complex code blocks, looking for suggestions to refactor existing code, or simply need a knowledgeable AI assistant to tackle general programming-related queries, this plugin has got you covered.
