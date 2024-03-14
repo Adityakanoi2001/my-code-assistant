@@ -32,13 +32,15 @@ QB's ChatBot Intellij Plugin can aid in the crucial task of writing test cases f
 
 ## Installation
 
-1. Download the plugin's zip file `coreys-chatgpt-intellij-plugin-0.0.1.zip` from the repository.
-[qb-chatgpt-intellij-plugin-0.0.1.zip](coreys-chatgpt-intellij-plugin-0.0.1.zip)
+1. Download the plugin's zip file `my-code-assistant-0.0.1.zip` from the repository.
+[my-code-assistant-0.0.1.zip](my-code-assistant-0.0.1.zip)
 
 2. In IntelliJ, navigate to the plugin panel in the settings modal (`File > Settings > Plugins`).
+
  ![plugin panel](docs/plugin-panel.png)
 
 3. Click on the gear icon in the top-right corner, and select "Install Plugin from Disk..."
+
  ![install from disk](docs/install-from-disk.png)
 
 4. Browse and select the downloaded ZIP file to install the plugin.
