@@ -1,10 +1,16 @@
 # QB's ChatBot Intellij Plugin
 
-QB's ChatBot Intellij Plugin is a powerful tool that integrates ChatGPT into the IntelliJ IDE, providing developers with a seamless and efficient coding experience. With this plugin, you can harness the power of ChatGPT to assist you in various coding tasks, from explaining code snippets to refactoring code.
+QB's ChatBot Intellij Plugin is a powerful tool that integrates ChatGPT into the IntelliJ IDE, providing developers with a seamless and efficient coding experience. With this plugin, you can harness the power of ChatGPT to assist you in various coding tasks, from explaining code snippets to refactoring code. The QB Chat Assistant is Actively Used by Many Sqads and Teams in BliBli Group and is has been helping many Developers to Increase their productivity by ~30% per Sprint.
 
 ## Overview
 
 The ChatBot plugin leverages the capabilities of ChatGPT, a state-of-the-art language model developed by OpenAI, to assist developers in their coding endeavors. Whether you're seeking explanations for complex code blocks, looking for suggestions to refactor existing code, or simply need a knowledgeable AI assistant to tackle general programming-related queries, this plugin has got you covered.
+
+## 👨‍💻 Tech Stack:
+![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
+![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![Editor Config](https://img.shields.io/badge/Editor%20Config-E0EFEF?style=for-the-badge&logo=editorconfig&logoColor=000)
 
 ## Features
 
@@ -58,12 +64,26 @@ Before using QB's ChatBot Intellij Plugin, you'll need to configure your ChatGPT
 
 ## Contributing
 
-We welcome contributions from the community to enhance QB's ChatBot Intellij Plugin. If you have any ideas, bug reports, or feature requests, please open an issue or submit a pull request on the [GitHub repository](https://github.com/your-repo/qbs-chatbot-intellij-plugin).
+Current Contibutors : 
 
-## License
+- **Akshit Verma Chittiveli** - [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/https://www.linkedin.com/in/akshithchittiveli/)
 
-QB's ChatBot Intellij Plugin is released under the [MIT License](LICENSE).
+- **Aditya Sunit Kanoi** - [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ask2001/)
+
+We welcome contributions from the community to enhance QB's ChatBot Intellij Plugin. If you have any ideas, bug reports, or feature requests, please open an issue or submit a pull request on the [GitHub repository](https://github.com/Adityakanoi2001/my-code-assistant).
 
 ---
+
+<div align="center">
+
+  ## License - QB's ChatBot Intellij Plugin is released under the [MIT License](LICENSE).
+  <br/>
+  
+  ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
+  ![GitHub Forks](https://img.shields.io/github/forks/Adityakanoi2001/my-code-assistant.svg?style=for-the-badge)
+  ![GitHub Stars](https://img.shields.io/github/stars/Adityakanoi2001/my-code-assistant.svg?style=for-the-badge)
+  ![GitHub Watchers](https://img.shields.io/github/watchers/Adityakanoi2001/my-code-assistant.svg?style=for-the-badge)
+
+</div>
 
 Plugin based on the [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template).
